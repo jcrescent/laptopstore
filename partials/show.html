@@ -1,0 +1,38 @@
+<md-button class='md-raised' ng-href='/#/'>Back</md-button>
+<md-icon class="material-icons" ng-style="{color: 'grey'}">shopping_cart</md-icon><span>({{cart.length}})</span><span>Total:{{total}}</span>
+
+<md-card>
+	<md-card-title>
+		<md-card-title-text>
+			<span class='md-headline'>{{item.name}}</span>
+		</md-card-title-text>	
+		</md-card-title-media>
+			<img ng-src="{{item.image}}">
+		</md-card-title-media>
+		<md-card-title-text>
+			<span class="md-subhead description">{{item.shortDescription}}</span>
+		</md-card-title-text>
+	</md-card-title>		
+</md-card>
+
+<md-button class='md-raised' ng-click = 'addToCart(item)'>Add to Cart</md-button>
+
+<h3>Similar Products</h3>
+
+<md-card ng-repeat ='product in products' ng-if='product.color == item.color' md-theme="{{ showDarkTheme ? 'dark-grey' : 'default' }}"  class='slide'>
+	<md-card-title>
+		<md-card-title-media>
+			<img ng-src="{{product.thumbnailImage}}">
+		</md-card-title-media>
+		<md-card-title-text>
+			<span  class= 'md-healine' ng-click= "viewProduct(product.sku)" >{{product.name}}</span>
+			<span class="md-subhead description" ng-if= !product.onSale>{{product.regularPrice}}</span>
+			<span class="md-subhead description" ng-if= product.onSale><strike>	{{product.regularPrice}}</strike> on sale for {{product.salePrice}}</span>
+			<span class="md-subhead description">Rating: {{product.customerReviewAverage}}/5
+			</span>
+		</md-card-title-text>
+	<md-card-title>
+	<md-card-actions>
+		<md-button class="md-raised" ng-if="cartSkus.includes(product.sku)" ng-click="removeFromCart(product)">Remove From Cart</md-button>
+	</md-card-actions>
+</md-card>

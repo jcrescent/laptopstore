@@ -1,0 +1,21 @@
+{
+  "name": "angularlaptopstore",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "start": "npm run lite",
+    "lite": "lite-server"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "gulp": "^3.9.1",
+    "angular": "1.5.7",
+    "lite-server": "^2.2.2",
+    "angular-material": "^1.1.1",
+    "angular-cookies": "^1.5.8",
+    "angular-route": "^1.5.8"
+
+  }
+}

@@ -1,0 +1,10 @@
+.slide.ng-enter{
+  transition:0.7s linear all;
+  transform:translateY(1000px);
+}
+.slide.ng-enter-stagger{
+	transition-delay: 0.15s;
+}
+.slide.ng-enter.ng-enter-active {
+  transform:translateY(0);
+}

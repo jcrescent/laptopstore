@@ -1,0 +1,22 @@
+<h1>My Cart</h1>
+<md-button class='md-raised' ng-href='/#/'>Back</md-button>
+
+<!-- cards for product display -->
+<md-card ng-repeat ='product in cart' md-theme="{{ showDarkTheme ? 'dark-grey' : 'default' }}"  class='slide'>
+	<md-card-title>
+		<md-card-title-media>
+			<img ng-src="{{product.thumbnailImage}}">
+		</md-card-title-media>
+		<md-card-title-text>
+			<span  class= 'md-healine' ng-click= "viewProduct(product.sku)" >{{product.name}}</span>
+			<span class="md-subhead description" ng-if= !product.onSale>{{product.regularPrice}}</span>
+			<span class="md-subhead description" ng-if= product.onSale><strike>	{{product.regularPrice}}</strike> on sale for {{product.salePrice}}</span>
+			<span class = "md-subhead"></span>
+		</md-card-title-text>
+	<md-card-title>
+	<md-card-actions>
+		<md-button class="md-raised" ng-if="cartSkus.includes(product.sku)" ng-click="removeFromCart(product)">Remove From Cart</md-button>
+	</md-card-actions>
+</md-card>
+
+<h2>Your Total: ${{total}}</h2>
